@@ -1,0 +1,11 @@
+# Credentials
+.env
+
+# FSCrawler distribution
+fscrawler-*
+
+# Slides if any
+20??-??-?? - *
+
+# Personal notes
+script*.pages
