@@ -1,0 +1,41 @@
+# Ingest Attachment demo
+
+## Define the ingest pipeline
+PUT _ingest/pipeline/attachment
+{
+  "description" : "Extract attachment information",
+  "processors" : [
+    {
+      "attachment" : {
+        "field" : "data",
+        "remove_binary": true
+      }
+    }
+  ]
+}
+
+## Simulate some BASE64 content
+POST _ingest/pipeline/attachment/_simulate
+{
+  "docs": [
+    {
+      "_source": {
+        "data": "BASE64"
+      }
+    }]
+}
+
+# FSCrawler demo
+
+## Search all documents
+
+GET /demo-all-docs/_search
+
+GET /demo-all-docs/_search
+{
+  "query": {
+    "match": {
+      "file.filename": "test-ocr.pdf"
+    }
+  }
+}
