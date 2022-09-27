@@ -10,7 +10,7 @@ FSCRAWLER_VERSION=2.10-SNAPSHOT
 FSCRAWLER_DISTRIBUTION=~/.m2/repository/fr/pilato/elasticsearch/crawler/fscrawler-distribution
 
 # Settings for fscrawler cloud instance
-ELASTIC_VERSION=8.2.0
+ELASTIC_VERSION=8.4.2
 ELASTIC_USERNAME=elastic
 ELASTIC_PASSWORD=changeme-im-not-safe
 CLOUD_ID=<CLOUD_ID>
