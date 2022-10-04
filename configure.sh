@@ -94,5 +94,5 @@ echo "open $KIBANA_URL/app/enterprise_search/workplace_search/sources"
 echo "To run the demo, run:"
 echo "cd $FSCRAWLER_DIR"
 
-echo "FS_JAVA_OPTS=\"-DLOG_LEVEL=debug\" bin/fscrawler --config_dir jobs"
+echo "bin/fscrawler --debug --config_dir jobs"
 
