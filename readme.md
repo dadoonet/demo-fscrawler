@@ -141,7 +141,7 @@ cd fscrawler-*
 Create a new empty job:
 
 ```sh
-FS_JAVA_OPTS="-DLOG_LEVEL=debug" bin/fscrawler --config_dir jobs test
+bin/fscrawler --debug --config_dir jobs test
 ```
 
 Explain the `jobs/test/_settings.yaml` file.
@@ -158,7 +158,7 @@ fs:
 Run it again. This will fail as no Elasticsearch node is running.
 
 ```sh
-FS_JAVA_OPTS="-DLOG_LEVEL=debug" bin/fscrawler --config_dir jobs test
+bin/fscrawler --debug --config_dir jobs test
 ```
 
 Show one of the existing jobs like:
@@ -168,7 +168,7 @@ cat jobs/demo-all-docs/_settings.yaml
 ```
 
 ```sh
-FS_JAVA_OPTS="-DLOG_LEVEL=debug" bin/fscrawler --config_dir jobs
+bin/fscrawler --debug --config_dir jobs
 ```
 
 Choose job `demo-few-docs` and `demo-all-docs`.
@@ -180,7 +180,7 @@ You can show the existing sources and how to add a new supported one.
 You can manually show how to configure a new Custom Source.
 
 ```sh
-FS_JAVA_OPTS="-DLOG_LEVEL=debug" bin/fscrawler --config_dir jobs
+bin/fscrawler --debug --config_dir jobs
 ```
 
 Choose job `demo-wp-all-docs`.
