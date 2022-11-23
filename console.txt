@@ -7,6 +7,24 @@ PUT _ingest/pipeline/attachment
   "processors" : [
     {
       "attachment" : {
+        "field" : "data"
+      }
+    },
+    {
+      "remove": {
+        "field": "data"
+      }
+    }
+  ]
+}
+
+## A simpler version
+PUT _ingest/pipeline/attachment
+{
+  "description" : "Extract attachment information",
+  "processors" : [
+    {
+      "attachment" : {
         "field" : "data",
         "remove_binary": true
       }
