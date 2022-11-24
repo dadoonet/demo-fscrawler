@@ -10,13 +10,16 @@ FSCRAWLER_VERSION=2.10-SNAPSHOT
 FSCRAWLER_DISTRIBUTION=~/.m2/repository/fr/pilato/elasticsearch/crawler/fscrawler-distribution
 
 # Settings for fscrawler cloud instance
-ELASTIC_VERSION=8.4.3
+ELASTIC_VERSION=8.5.2
 ELASTIC_USERNAME=elastic
 ELASTIC_PASSWORD=changeme-im-not-safe
 CLOUD_ID=<CLOUD_ID>
 ELASTICSEARCH_URL=https://ENDPOINT.es.REGION.PROVIDER.elastic-cloud.com:9243
 KIBANA_URL=https://ENDPOINT.kb.REGION.PROVIDER.elastic-cloud.com:9243
 WORKPLACE_URL=https://ENDPOINT.ent.REGION.PROVIDER.elastic-cloud.com
+
+# Apache Tika standalone demo
+TIKA_VERSION=2.6.0
 ```
 
 You might have to replace some based on your cloud deployment and some local settings:
@@ -30,6 +33,7 @@ You might have to replace some based on your cloud deployment and some local set
 * `ELASTICSEARCH_URL`: get the Elasticsearch endpoint URL from the cloud service console.
 * `KIBANA_URL`: get the Kibana endpoint URL from the cloud service console.
 * `WORKPLACE_URL`: get the Enterprise Search endpoint URL from the cloud service console.
+* `TIKA_VERSION`: the version of the latest Tika release. Only helpful for demoing Tika standalone.
 
 You will need to start a local Python webserver:
 
@@ -57,6 +61,19 @@ This will remove all the data before the demo and generate all the needed jobs.
 It will also give you some end instructions to follow.
 
 Open Cloud and use the Kibana link of the deployment.
+
+## Tika standalone demo
+
+Run:
+
+```sh
+# Extracted text
+cat docs/test/foo.txt | java -jar tika/tika-app-*.jar --text
+# Metadata
+cat docs/test/foo.txt | java -jar tika/tika-app-*.jar --metadata
+# Metadata as JSON
+cat docs/test/foo.txt | java -jar tika/tika-app-*.jar --json | jq
+```
 
 ## Ingest Attachment Plugin
 

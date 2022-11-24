@@ -1,6 +1,8 @@
 source .env
 
 FSCRAWLER_DIR=fscrawler-$FSCRAWLER_VERSION
+TIKA_JAR=tika-app-$TIKA_VERSION.jar
+TIKA_URL=https://dlcdn.apache.org/tika/$TIKA_VERSION/$TIKA_JAR
 
 echo Installation script for FSCrawler Search demo with Elastic Workplace Search $ELASTIC_VERSION
 
@@ -40,3 +42,14 @@ rm -r $FSCRAWLER_DIR
 unzip -q $FSCRAWLER_DISTRIBUTION/$FSCRAWLER_VERSION/fscrawler-distribution-$FSCRAWLER_VERSION.zip
 mv fscrawler-distribution-$FSCRAWLER_VERSION $FSCRAWLER_DIR 
 
+echo -ne '\n'
+echo "#############################################"
+echo "### Install Apache Tika App from internet ###"
+echo "#############################################"
+echo -ne '\n'
+
+rm -r tika
+mkdir tika
+cd tika
+wget $TIKA_URL
+cd ..
