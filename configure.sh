@@ -91,8 +91,4 @@ cat console.txt
 echo "Open Wokplace Search and remove the Custom source named Local files for demo-wp-all-docs"
 echo "open $KIBANA_URL/app/enterprise_search/workplace_search/sources"
 
-echo "To run the demo, run:"
-echo "cd $FSCRAWLER_DIR"
-
-echo "bin/fscrawler --debug --config_dir jobs"
-
+./demo.sh
