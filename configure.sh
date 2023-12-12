@@ -21,7 +21,8 @@ elasticsearch:
   username: "$ELASTIC_USERNAME"
   password: "$3"
   nodes:
-  - cloud_id: "$CLOUD_ID"
+  - url: "$ELASTICSEARCH_URL"
+  ssl_verification: false
 workplace_search:
   server: "$WORKPLACE_URL"
 EOF
@@ -40,7 +41,8 @@ elasticsearch:
   username: "$ELASTIC_USERNAME"
   password: "$3"
   nodes:
-  - cloud_id: "$CLOUD_ID"
+  - url: "$ELASTICSEARCH_URL"
+  ssl_verification: false
 EOF
 }
 
@@ -50,7 +52,7 @@ echo "### Remove attachment pipeline from Elasticsearch ###"
 echo "#####################################################"
 echo -ne '\n'
 
-curl -XDELETE "$ELASTICSEARCH_URL/_ingest/pipeline/attachment" -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD ; echo
+curl $CURL_OPTION -XDELETE "$ELASTICSEARCH_URL/_ingest/pipeline/attachment" -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD ; echo
 
 echo -ne '\n'
 echo "##############################################"
@@ -58,12 +60,12 @@ echo "### Remove demo indices from Elasticsearch ###"
 echo "##############################################"
 echo -ne '\n'
 
-curl -XDELETE "$ELASTICSEARCH_URL/demo-few-docs" -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD ; echo
-curl -XDELETE "$ELASTICSEARCH_URL/demo-few-docs_folder" -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD ; echo
-curl -XDELETE "$ELASTICSEARCH_URL/demo-all-docs" -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD ; echo
-curl -XDELETE "$ELASTICSEARCH_URL/demo-all-docs_folder" -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD ; echo
-curl -XDELETE "$ELASTICSEARCH_URL/demo-wp-all-docs" -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD ; echo
-curl -XDELETE "$ELASTICSEARCH_URL/demo-wp-all-docs_folder" -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD ; echo
+curl $CURL_OPTION -XDELETE "$ELASTICSEARCH_URL/demo-few-docs" -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD ; echo
+curl $CURL_OPTION -XDELETE "$ELASTICSEARCH_URL/demo-few-docs_folder" -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD ; echo
+curl $CURL_OPTION -XDELETE "$ELASTICSEARCH_URL/demo-all-docs" -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD ; echo
+curl $CURL_OPTION -XDELETE "$ELASTICSEARCH_URL/demo-all-docs_folder" -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD ; echo
+curl $CURL_OPTION -XDELETE "$ELASTICSEARCH_URL/demo-wp-all-docs" -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD ; echo
+curl $CURL_OPTION -XDELETE "$ELASTICSEARCH_URL/demo-wp-all-docs_folder" -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD ; echo
 
 echo -ne '\n'
 echo "########################################"

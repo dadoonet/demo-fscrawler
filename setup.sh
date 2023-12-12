@@ -1,6 +1,7 @@
 source .env
 
 FSCRAWLER_DIR=fscrawler-$FSCRAWLER_VERSION
+TIKA_DIR=tika
 TIKA_JAR=tika-app-$TIKA_VERSION.jar
 TIKA_URL=https://dlcdn.apache.org/tika/$TIKA_VERSION/$TIKA_JAR
 
@@ -13,8 +14,8 @@ check_service () {
 	echo $4
 	echo -ne "Waiting for $1"
 
-	until curl -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD -s "$2" | grep "$3" > /dev/null ; do
-			curl -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD -s "$2"
+	until curl $CURL_OPTION -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD -s "$2" | grep "$3" > /dev/null ; do
+			curl $CURL_OPTION -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD -s "$2"
 		  sleep 1
 			echo -ne '.'
 	done
@@ -48,8 +49,12 @@ echo "### Install Apache Tika App from internet ###"
 echo "#############################################"
 echo -ne '\n'
 
-rm -r tika
-mkdir tika
-cd tika
-wget $TIKA_URL
-cd ..
+if [ ! -e $TIKA_DIR ] ; then
+    echo "Creating $TIKA_DIR dir"
+    mkdir $TIKA_DIR
+fi
+
+if [ ! -e $TIKA_DIR/$TIKA_JAR ] ; then
+		echo "Fetching $TIKA_JAR from $TIKA_URL"
+		wget $TIKA_URL -P $TIKA_DIR
+fi

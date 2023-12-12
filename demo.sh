@@ -22,5 +22,5 @@ echo ""
 
 echo "To run the FSCrawler demo, run:"
 echo "cd $FSCRAWLER_DIR"
-echo "bin/fscrawler --debug --config_dir jobs"
+echo "FS_JAVA_OPTS=\"-DLOG_LEVEL=debug\" bin/fscrawler --config_dir jobs"
 

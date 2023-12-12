@@ -12,4 +12,4 @@ cat /tmp/demo-fscrawler.json | jq
 
 echo ""
 echo "### RESPONSE ###"
-curl -XPOST -s -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD "$ELASTICSEARCH_URL/_ingest/pipeline/attachment/_simulate" -H 'Content-Type: application/json' --data-binary "@/tmp/demo-fscrawler.json" | jq
+curl $CURL_OPTION -XPOST -s -u $ELASTIC_USERNAME:$ELASTIC_PASSWORD "$ELASTICSEARCH_URL/_ingest/pipeline/attachment/_simulate" -H 'Content-Type: application/json' --data-binary "@/tmp/demo-fscrawler.json" | jq

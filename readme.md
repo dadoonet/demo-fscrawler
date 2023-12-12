@@ -10,16 +10,15 @@ FSCRAWLER_VERSION=2.10-SNAPSHOT
 FSCRAWLER_DISTRIBUTION=~/.m2/repository/fr/pilato/elasticsearch/crawler/fscrawler-distribution
 
 # Settings for fscrawler cloud instance
-ELASTIC_VERSION=8.6.0
+ELASTIC_VERSION=8.11.2
 ELASTIC_USERNAME=elastic
 ELASTIC_PASSWORD=changeme-im-not-safe
-CLOUD_ID=<CLOUD_ID>
 ELASTICSEARCH_URL=https://ENDPOINT.es.REGION.PROVIDER.elastic-cloud.com:9243
 KIBANA_URL=https://ENDPOINT.kb.REGION.PROVIDER.elastic-cloud.com:9243
 WORKPLACE_URL=https://ENDPOINT.ent.REGION.PROVIDER.elastic-cloud.com
 
 # Apache Tika standalone demo
-TIKA_VERSION=2.6.0
+TIKA_VERSION=2.9.1
 ```
 
 You might have to replace some based on your cloud deployment and some local settings:
@@ -29,7 +28,6 @@ You might have to replace some based on your cloud deployment and some local set
 * `ELASTIC_VERSION`: Elastic stack version.
 * `ELASTIC_USERNAME`: you could create another user than `elastic` with reduced privileges (recommended).
 * `ELASTIC_PASSWORD`: the user name password
-* `CLOUD_ID`: check the cloud service console to get this.
 * `ELASTICSEARCH_URL`: get the Elasticsearch endpoint URL from the cloud service console.
 * `KIBANA_URL`: get the Kibana endpoint URL from the cloud service console.
 * `WORKPLACE_URL`: get the Enterprise Search endpoint URL from the cloud service console.
